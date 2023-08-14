@@ -56,6 +56,8 @@ function validatorRadioButtonGroup(checkedRadioElemName, specificErrorMessageID 
       // check if the other radio button has been checked but without the textfield value
       if (otherCheckStatus && otherTextFieldInputValue != "") {
         validationStatus = true
+      } else if (otherCheckStatus == false ){
+        validationStatus = true
       }
     } else {
       validationStatus = true
@@ -120,8 +122,9 @@ function validatorCheckboxCount(checkboxGroupID, specificErrorMessageID, count) 
   } else {
     document.querySelector(`#${specificErrorMessageID}`).style.display = "none"
   }
-}
 
+  return validationStatus
+}
 
 
 // Select other when the textfield has been filled for Radio button

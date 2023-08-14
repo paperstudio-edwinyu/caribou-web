@@ -5,9 +5,15 @@ const wrapperSection_1 = document.querySelector("#customer-intake-form-section-1
 const wrapperSection_2 = document.querySelector("#customer-intake-form-section-2")
 const wrapperSection_3 = document.querySelector("#customer-intake-form-section-3")
 const wrapperSection_4 = document.querySelector("#customer-intake-form-section-4")
+const formCustomerIntake = document.querySelector("#customer-intake-form")
+var section_4_previous_section
+
+formCustomerIntake.addEventListener("submit", async (e) => {
+	e.preventDefault()
+});
+
 
 // Section 1 Handling
-const section_1_previous = document.querySelector("#section-1-previous");
 const section_1_next = document.querySelector("#section-1-next");
 
 section_1_next.addEventListener("click", function () {
@@ -25,9 +31,11 @@ section_1_next.addEventListener("click", function () {
     var inputValue
     inputValue = document.querySelector('input[name="section_1_Q2"]:checked').value
     if(inputValue == "Yes") {
+      // Go to Section 2
       wrapperSection_1.style.display = "none"
       wrapperSection_2.style.display = "flex"
     } else {
+      // Go to Section 3
       wrapperSection_1.style.display = "none"
       wrapperSection_3.style.display = "flex"
     }
@@ -51,12 +59,13 @@ section_2_next.addEventListener("click", function() {
   // General Error Message
   const error_section_2 = document.querySelector("#error_section_2")
 
-  var validation_section_2_Q2 = validatorTextfield("section_2_Q2", "error_section_2_Q2")
+  var validation_section_2_Q1 = validatorTextfield("section_2_Q1", "error_section_2_Q1")
 
   //Display Generic Error Message or go to next section
-  if (validation_section_2_Q2) {
+  if (validation_section_2_Q1) {
     error_section_2.style.display = "none"
     wrapperSection_2.style.display = "none"
+    section_4_previous_section = "customer-intake-form-section-2"
     wrapperSection_4.style.display = "flex"
   } else {
     error_section_2.style.display = "flex"
@@ -78,13 +87,14 @@ section_3_next.addEventListener("click", function(){
   const error_section_3 = document.querySelector("#error_section_3")
 
   // Question: When do you plan to go there? (DD/MM/YY) 
-  var validation_section_3_Q2 = validatorTextfield("section_3_Q2", "error_section_3_Q2")
+  var validation_section_3_Q2 = validatorTextfield("section_3_Q1", "error_section_3_Q1")
 
   // Display Generic Error Message or go to next section
   if (validation_section_3_Q2) {
     error_section_3.style.display = "none"
     wrapperSection_3.style.display = "none"
     wrapperSection_4.style.display = "flex"
+    section_4_previous_section = "customer-intake-form-section-3"
   } else {
     error_section_3.style.display = "flex"
   }
@@ -95,7 +105,13 @@ section_3_next.addEventListener("click", function(){
 
 
 // Section 4 Handling
+const section_4_previous = document.querySelector("#section-4-previous")
 const section_4_submit = document.querySelector("#section-4-submit")
+
+section_4_previous.addEventListener("click", function(){
+  wrapperSection_4.style.display = "none"
+  document.querySelector(`#${section_4_previous_section}`).style.display = "flex"
+})
 
 // Handle the radio other option
 // Check the other radio button when the textfield has been provided
@@ -123,22 +139,22 @@ section_4_submit.addEventListener("click", function() {
   var validation_section_4_Q8 = validatorRadioButtonGroup("section_4_Q8","error_section_4_Q8",  "section_4_Q8_Other", "section_4_Q8_Other_Textfield")
 
   // Checkbox Group Validation
+  var validation_section_4_Q6_count_3 =  validatorCheckboxCount("section_4_Q6_group", "error_section_4_Q6_count", 3)
   var validation_section_4_Q9 = validatorCheckboxGroup("section_4_Q9_group", "error_section_4_Q9", "section_4_Q9_Other", "section_4_Q9_Other_Textfield")
-  var validation_section_4_Q9_count_3 =  validatorCheckboxCount("section_4_Q9_group", "error_section_4_Q9_count", 2)
-
   // Display Generic Error Message or go to the next section
   if (validation_section_4_Q1 && 
       validation_section_4_Q2 && 
       validation_section_4_Q4_number && 
       validation_section_4_Q5_number && 
+      validation_section_4_Q6_count_3 && 
       validation_section_4_Q7 && 
       validation_section_4_Q8 && 
       validation_section_4_Q9 &&
-      validation_section_4_Q9_count_3 && 
       validation_section_4_Q11 && 
       validation_section_4_Q12) {
-    error_section_4.style.display = "none"
-    document.querySelector("")
+     
+        error_section_4.style.display = "none"
+        document.querySelector("#btn-submit").click()
   } else {
     error_section_4.style.display = "flex"
   }
