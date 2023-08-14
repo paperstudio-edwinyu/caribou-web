@@ -25,37 +25,59 @@ section_4_submit.addEventListener("click", function() {
 
   // Textfield Validation
   var validation_section_1_Q1 = validatorTextfield("section_1_Q1", "error_section_1_Q1")
-  var validation_section_1_Q5 = validatorTextfield("section_1_Q5", "error_section_1_Q5")
+  var validation_section_1_Q4 = validatorTextfield("section_1_Q4", "error_section_1_Q4")
+  var validation_section_1_Q6 = validatorTextfield("section_1_Q6", "error_section_1_Q6")
+  var validation_section_1_Q10 = validatorTextfield("section_1_Q10", "error_section_1_Q10")
+  var validation_section_2_Q1 = validatorTextfield("section_2_Q1", "error_section_2_Q1")
+  var validation_section_2_Q2 = validatorTextfield("section_2_Q2", "error_section_2_Q2")
+  var validation_section_2_Q3 = validatorTextfield("section_2_Q3", "error_section_2_Q3")
+  var validation_section_2_Q4 = validatorTextfield("section_2_Q4", "error_section_2_Q4")
   var validation_section_3_Q1 = validatorTextfield("section_3_Q1", "error_section_3_Q1")
   var validation_section_3_Q2 = validatorTextfield("section_3_Q2", "error_section_3_Q2")
   var validation_section_3_Q3 = validatorTextfield("section_3_Q3", "error_section_3_Q3")
   var validation_section_3_Q4 = validatorTextfield("section_3_Q4", "error_section_3_Q4")
   var validation_section_3_Q5 = validatorTextfield("section_3_Q5", "error_section_3_Q5")
+  var validation_section_4_Q2 = validatorTextfield("section_4_Q2", "error_section_4_Q2")
+  var validation_section_4_Q3 = validatorTextfield("section_4_Q3", "error_section_4_Q3")
+  var validation_section_4_Q4 = validatorTextfield("section_4_Q4", "error_section_4_Q4")
 
   // Number Textfield Validation
   var validation_section_1_Q2_number = validatorNumberTextfield("section_1_Q2", "error_section_1_Q2_number")
   var validation_section_1_Q3_number = validatorNumberTextfield("section_1_Q3", "error_section_1_Q3_number")
-  var validation_section_1_Q4_number = validatorNumberTextfield("section_1_Q4", "error_section_1_Q4_number")
+  var validation_section_1_Q5_number = validatorNumberTextfield("section_1_Q5", "error_section_1_Q5_number")
 
   // Radio Button Group Validation
-  var validation_section_1_Q7 = validatorRadioButtonGroup("section_1_Q7", "error_section_1_Q7")
   var validation_section_1_Q8 = validatorRadioButtonGroup("section_1_Q8", "error_section_1_Q8")
+  var validation_section_1_Q9 = validatorRadioButtonGroup("section_1_Q9", "error_section_1_Q9")
   var validation_section_4_Q1 = validatorRadioButtonGroup("section_4_Q1", "error_section_4_Q1", "section_4_Q1_Other", "section_4_Q1_Other_Textfield")
+  var validation_section_4_Q5 = validatorRadioButtonGroup("section_4_Q5", "error_section_4_Q5")
+  var validation_section_4_Q6 = validatorRadioButtonGroup("section_4_Q6", "error_section_4_Q6")
 
   // Display Generic Error Message or go to the next section
   if (validation_section_1_Q1 &&
     validation_section_1_Q2_number &&
     validation_section_1_Q3_number &&
-    validation_section_1_Q4_number &&
-    validation_section_1_Q5 && 
-    validation_section_1_Q7 && 
+    validation_section_1_Q4 &&
+    validation_section_1_Q5_number &&
+    validation_section_1_Q6 && 
     validation_section_1_Q8 && 
+    validation_section_1_Q9 &&
+    validation_section_1_Q10 &&  
+    validation_section_2_Q1 &&
+    validation_section_2_Q2 &&
+    validation_section_2_Q3 &&
+    validation_section_2_Q4 &&
     validation_section_3_Q1 &&
     validation_section_3_Q2 &&
     validation_section_3_Q3 &&
     validation_section_3_Q4 &&
     validation_section_3_Q5 && 
-    validation_section_4_Q1 ) {
+    validation_section_4_Q1 && 
+    validation_section_4_Q2 && 
+    validation_section_4_Q3 && 
+    validation_section_4_Q4 && 
+    validation_section_4_Q5 && 
+    validation_section_4_Q6 ) {
       error_section_4.style.display = "none"
       document.querySelector("#btn-submit").click()
       
